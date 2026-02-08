@@ -1,16 +1,11 @@
-
-
+import Layout from "./Layouts/Layout";
 
 function App() {
-  
-
   return (
-    <>
-      <p >
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Layout>
+      <h1>Book App Starting files</h1>
+    </Layout>
+  );
 }
 
-export default App
+export default App;

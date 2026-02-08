@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 80px;
+  border-radius: 10px;
+  background-color: #303030;
+}
+.header h2 {
+  font-size: 1.1rem;
+  color: #6552f4;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
