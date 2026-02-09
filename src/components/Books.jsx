@@ -1,17 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { books } from "../constants/mockData";
 import BookCard from "./BookCard.jsx";
+import SideCard from "./SideCard.jsx";
+import styles from "./Books.module.css";
 
 function Books() {
-  console.log(books.map((book) => book.title));
+  const [liked, setLiked] = useState([]);
+
+  const handelLikeList = (book, status) => {
+    if (status) {
+      const newLikedList = liked.filter((i) => i.id !== book.id);
+      setLiked(newLikedList);
+    } else {
+      setLiked((liked) => [...liked, book]);
+    }
+  };
+
   return (
-    <div>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.cards}>
         {books.map((book) => (
-          <BookCard key={book.id} data={book} />
+          <BookCard key={book.id} data={book} handelLikeList={handelLikeList} />
         ))}
       </div>
-      <div></div>
+      {!!liked.length && (
+        <div className={styles.favorite}>
+          <h4>Favorites</h4>
+          {liked.map((book) => (
+            <SideCard key={book.id} data={book} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
